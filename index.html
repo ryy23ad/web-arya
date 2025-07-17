@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FilmFlix - Nonton Film Gratis</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <button class="hamburger" onclick="toggleSidebar()">☰</button>
+
+<!-- Sidebar -->
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <h2>FilmFlix</h2>
+    <button class="close-btn" onclick="toggleSidebar()">✖</button>
+  </div>
+  <ul>
+    <li><a href="#">📺 Beranda</a></li>
+    <li><a href="#">🔥 Action</a></li>
+    <li><a href="#">👻 Horor</a></li>
+    <li><a href="#">😂 Komedi</a></li>
+    <li><a href="#">🎬 Drama</a></li>
+    <li><a href="#">🎉 Animasi</a></li>
+    <li><a href="admin.html">🔧 Panel Admin</a></li>
+    <li><a href="login.html" onclick="logout()">🚪 Logout</a></li>
+  </ul>
+  <div class="viewer-count-box">
+    🔴 <strong>Aktif:</strong> <span id="activeViewers">92.980</span> / 200.000
+  </div>
+</nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+  <header>
+    <input type="text" id="searchInput" placeholder="Cari judul film...">
+  </header>
+
+      <section class="movies" id="movieList">
+        <!-- Action -->
+        <div class="movie-card" data-title="John Wick">
+          <img src="assets/john-wick.jpg" alt="John Wick" />
+          <h3>John Wick</h3>
+        </div>
+        <div
+          class="movie-card"
+          data-title="Extraction"
+          onclick="window.location.href='play.html?film=Dunia Ini Emang Kerazz'"
+        >
+          <img src="assets/DuniaKeraszz.jpg" alt="Extraction" />
+          <h3>Dunia Ini Memang Keras</h3>
+        </div>
+        <div class="movie-card" data-title="The Conjuring">
+          <img src="assets/conjuring.jpg" alt="The Conjuring" />
+          <h3>The Conjuring</h3>
+        </div>
+        <div class="movie-card" data-title="Annabelle">
+          <img src="assets/annabelle.jpg" alt="Annabelle" />
+          <h3>Annabelle</h3>
+        </div>
+
+        <!-- Komedi -->
+        <div class="movie-card" data-title="The Mask">
+          <img src="assets/the-mask.jpg" alt="The Mask" />
+          <h3>The Mask</h3>
+        </div>
+        <div class="movie-card" data-title="Mr. Bean's Holiday">
+          <img src="assets/bean.jpg" alt="Mr. Bean" />
+          <h3>Mr. Bean's Holiday</h3>
+        </div>
+
+        <!-- Drama -->
+        <div class="movie-card" data-title="The Pursuit of Happyness">
+          <img src="assets/pursuit.jpg" alt="The Pursuit of Happyness" />
+          <h3>The Pursuit of Happyness</h3>
+        </div>
+        <div class="movie-card" data-title="Forrest Gump">
+          <img src="assets/forrest.jpg" alt="Forrest Gump" />
+          <h3>Forrest Gump</h3>
+        </div>
+
+        <!-- Animasi -->
+        <div class="movie-card" data-title="Frozen">
+          <img src="assets/frozen.jpg" alt="Frozen" />
+          <h3>Frozen</h3>
+        </div>
+        <div class="movie-card" data-title="Kung Fu Panda">
+          <img src="assets/kungfu.jpg" alt="Kung Fu Panda" />
+          <h3>Kung Fu Panda</h3>
+        </div>
+      </section>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+      // Cek login user
+      const user = localStorage.getItem("loggedInUser");
+      if (!user) {
+        alert("Silakan login terlebih dahulu.");
+        window.location.href = "login.html";
+      }
+      function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        sidebar.classList.toggle("active");
+        document.body.classList.toggle("sidebar-open");
+      }
+      // Logout
+      function logout() {
+        localStorage.removeItem("loggedInUser");
+        alert("Berhasil logout.");
+      }
+    </script>
+  </body>
+</html>

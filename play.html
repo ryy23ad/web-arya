@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Putar Film - FilmFlix</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .video-container {
+      max-width: 100%;
+      margin: auto;
+      padding: 20px;
+    }
+
+    video {
+      width: 100%;
+      max-height: 80vh;
+      border: 2px solid #ff3b3f;
+      border-radius: 10px;
+    }
+
+    .back-btn {
+      margin-top: 20px;
+      display: inline-block;
+      background: #ff3b3f;
+      padding: 10px 20px;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .back-btn:hover {
+      background: #e83234;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="video-container">
+    <h2 id="film-title">Memuat Film...</h2>
+    <video id="videoPlayer" controls>
+      <source src="" type="video/mp4">
+      Browser Anda tidak mendukung pemutar video.
+    </video>
+    <br>
+    <a href="index.html" class="back-btn">⏪ Kembali ke Beranda</a>
+  </div>
+
+  <script>
+    // Ambil parameter dari URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const film = urlParams.get('film');
+
+    // Judul tampil
+    const titleMap = {
+      'extraction': 'Dunia Ini Memang Keras',
+      'john-wick': 'John Wick',
+      'conjuring': 'The Conjuring',
+      // Tambahkan lainnya di sini...
+    };
+
+    // Ganti judul dan file video berdasarkan film
+    if (film) {
+      document.getElementById('film-title').innerText = titleMap[film] || film;
+      document.querySelector('#videoPlayer source').src = `AssetsFilm/${film}.mp4`;
+      document.getElementById('videoPlayer').load();
+    } else {
+      document.getElementById('film-title').innerText = "Film tidak ditemukan";
+    }
+  </script>
+
+</body>
+</html>
