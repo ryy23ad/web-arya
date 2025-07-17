@@ -44,6 +44,7 @@ body {
 
 .close-btn {
   position: absolute;
+  display: none;
   top: 20px;     /* atur seberapa atas */
   right: 24px;   /* biar di kanan */
   background: none;
@@ -138,6 +139,8 @@ header {
   font-size: 16px;
 }
 
+
+
 @media (max-width: 768px) {
   .sidebar {
     position: fixed;
@@ -150,6 +153,9 @@ header {
     background-color: #1f1f1f;
     transition: transform 0.3s ease;
     padding: 20px;
+  }
+  .close-btn {
+    display: block;
   }
 
   .sidebar.active {
@@ -167,4 +173,25 @@ header {
   body.sidebar-open {
     overflow: hidden;
   }
+}
+
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  color: white;
+  padding: 16px 24px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  font-size: 16px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 9999;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
 }

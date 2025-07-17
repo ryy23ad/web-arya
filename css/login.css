@@ -70,25 +70,40 @@ button:hover {
   gap: 10px;
   margin-bottom: 20px;
 }
-
-.google-btn, .phone-btn {
-  background-color: #fff;
-  color: #333;
-  border: none;
-  padding: 12px;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.notif {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  background-color: #444;
+  color: white;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 9999;
 }
 
-.google-btn:hover {
-  background-color: #f0f0f0;
+.notif.success {
+  background-color: #4CAF50;
 }
 
-.phone-btn:hover {
-  background-color: #ffe0b2;
+.notif.info {
+  background-color: #2196F3;
 }
+
+.notif.error {
+  background-color: #f44336;
+}
+
+.notif.show {
+  opacity: 1;
+}
+
+.notif.hidden {
+  opacity: 0;
+}
+
 
 @keyframes fadeIn {
   from {
