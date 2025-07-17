@@ -17,7 +17,7 @@
 <!-- Sidebar -->
 <nav class="sidebar" id="sidebar">
   <div class="sidebar-header">
-    <h2>AR FILM</h2>
+    <h2>PICTURE FILM</h2>
     <button class="close-btn" onclick="toggleSidebar()">✖</button>
   </div>
   <ul>
@@ -43,9 +43,30 @@
 
       <section class="movies" id="movieList">
         <!-- Action -->
-        <div class="movie-card" data-title="John Wick">
-          <img src="assets/john-wick.jpg" alt="John Wick" />
-          <h3>John Wick</h3>
+        <div
+          class="movie-card"
+          data-title="Extraction"
+          onclick="window.location.href='play.html?film=Rumah Punya Cerita'"
+        >
+          <img src="assets/Rumah-Punya-Cerita.jpg" alt="Extraction" />
+          <h3>Rumah Punya Cerita</h3>
+        </div>
+
+        <div
+          class="movie-card"
+          data-title="Extraction"
+          onclick="window.location.href='play.html?film=AKHIRNYA JATUH CINTA LAGI'"
+        >
+          <img src="assets/AKHIRNYA-JATUH -CINTA-LAGI.jpg" alt="Extraction" />
+          <h3>AKHIRNYA JATUH CINTA LAGI</h3>
+        </div>
+        <div
+          class="movie-card"
+          data-title="Extraction"
+          onclick="window.location.href='play.html?film=Kita Usahakan Rumah Itu'"
+        >
+          <img src="assets/Kita-Usahakan-Rumah-Itu.jpg" alt="Extraction" />
+          <h3>Kita Usahakan Rumah Itu</h3>
         </div>
         <div
           class="movie-card"
@@ -108,7 +129,6 @@
         sidebar.classList.toggle("active");
         document.body.classList.toggle("sidebar-open");
       }
-      // Logout
       function logout() {
         localStorage.removeItem("loggedInUser");
         alert("Berhasil logout.");
